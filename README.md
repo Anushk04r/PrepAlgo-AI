@@ -1,72 +1,96 @@
-# DSA Mentor AI
+# AlgoMentor AI
 
-Focused chat UI for **Data Structures & Algorithms** and **technical interview prep**. Choose a **mode** (Beginner / Interview / Practice mock interview) and chat with a model constrained by a strict system prompt.
+AlgoMentor AI is an intelligent, AI-powered DSA interview assistant designed to help developers master Data Structures and Algorithms through a structured, interactive, and feedback-driven experience. Unlike generic chatbots, AlgoMentor AI is engineered with a specialized pedagogical approach to guide users from conceptual understanding to interview readiness.
 
-## Features
+---
 
-| Feature | Details |
-|---------|---------|
-| **ChatGPT-style landing page** | Centered greeting, 3 suggestion cards, and a centered chat input. Transitions to the conversation view on first message. |
-| **Light / Dark theme** | Toggle via the sun/moon button in the header. Preference is saved in `localStorage`. |
-| **Mode selector** | Beginner (simple explanations), Interview (concise optimal answers), Practice (mock-interview ask → answer → evaluate loop). |
-| **Chat history** | Stored in `localStorage`. Recent chats listed in the sidebar. |
-| **Profile widget** | Placeholder profile section at the bottom of the sidebar (no auth required). |
-| **Markdown rendering** | Assistant replies rendered with `react-markdown` + syntax-highlighted code blocks via `rehype-highlight`. |
-| **Responsive design** | Works across desktop, tablet, and mobile. Sidebar collapses into a drawer on small screens. |
+## 💡 The Core Idea
 
-## Knowledge base & scope
+Mastering DSA isn't just about finding the solution—it's about understanding the "why" and "how." **AlgoMentor AI** solves the problem of passive learning by acting as a mentor rather than just an answer engine. It focuses on the intuition behind algorithms, time/space complexity analysis, and realistic interview simulation, ensuring users are prepared for the rigors of technical interviews at top-tier companies.
 
-This product does **not** use a separate vector database or uploaded files. The "knowledge base" is **explicit and enforced in code**:
+---
 
-| Layer | What it does |
-|-------|--------------|
-| **System prompt** (`src/lib/systemPrompt.js`) | Restricts the assistant to DSA/interview content, defines mode behavior, and (in Practice) runs the mock-interview flow. |
-| **Modes** | Beginner = explanations; Interview = concise optimal answers; Practice = ask → answer → evaluate loop. |
+## 🚀 Key Features
 
-**Scope statement:** *Answers are scoped by a fixed system prompt plus the selected mode — not by arbitrary web crawl. Out-of-scope questions get a standard refusal line.*
+### 🎓 Mode-Based Learning System
+AlgoMentor AI adapts its behavior based on your current goal. You can toggle between three specialized modes via the header:
+- **Beginner Mode:** Focuses on clear, step-by-step explanations. It uses analogies and detailed walkthroughs to help you grasp fundamental concepts without feeling overwhelmed.
+- **Interview Mode:** Provides concise, optimal solutions and professional-grade explanations. This mode is designed to show you how a top-tier candidate should communicate their thoughts and code during a real interview.
+- **Practice Mode:** Our signature "guided discovery" mode. The AI acts as a patient coach, providing subtle hints and directional nudges instead of full solutions, forcing you to think through the logic yourself.
 
-## Run locally
+### 🎭 Mock Interview Simulation
+A standout feature where the AI takes the driver's seat. In Practice Mode, AlgoMentor AI doesn't just wait for questions—it **asks** them. It conducts a realistic technical interview, evaluates your approach, critiques your time/space complexity, and provides constructive feedback on how to improve your performance.
 
+### 🌓 Premium ChatGPT-like UI
+Experience a world-class interface that feels alive:
+- **Responsive Landing Page:** A clean, centered ChatGPT-style landing area with quick-action suggestion cards.
+- **Fluid UI Transitions:** Seamlessly moves from a landing state to an active conversation view.
+- **Light/Dark Mode:** A polished theme system with a dedicated toggle button, allowing for a comfortable coding environment in any lighting.
+
+### 📜 Persistent Chat History
+No login? No problem. AlgoMentor AI uses advanced `localStorage` management to persist your last **5 conversations**. Your progress, code snippets, and interview feedbacks are saved locally on your device, ready for you to pick up exactly where you left off.
+
+### 💻 Rich Markdown & Code Rendering
+All technical explanations and code blocks are rendered with precision. Using `react-markdown` and `rehype-highlight`, syntax highlighting is applied across multiple languages, making code snippets as readable as they would be in your IDE.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React 19 (Vite)
+- **Styling:** Tailwind CSS v4 (with CSS Variable-based theming)
+- **AI Engine:** Groq API (Inference on LLaMA 3.1 8B)
+- **Content Parsing:** React Markdown + Rehype Highlight
+- **Persistence:** LocalStorage API
+
+---
+
+## 🧠 How It Works
+
+### The System Prompt Architecture
+AlgoMentor AI is grounded by a strict system prompt that ensures it never strays from the DSA domain. It is programmed to:
+1.  **Refuse** out-of-scope questions.
+2.  **Enforce** complexity analysis in every technical response.
+3.  **Validate** edge cases for every algorithm discussed.
+
+### Dynamic Behavior Injection
+Depending on the selected mode, the application dynamically injects different behavioral sets into the Groq API calls. This enables the "Ask-Evaluate" loop in Practice mode versus the "Explain-Implement" loop in Beginner mode, all within the same conversation thread.
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Clone & Install
 ```bash
+git clone https://github.com/your-username/AlgoMentor-AI.git
+cd AlgoMentor-AI
 npm install
-# add .env — see .env.example
+```
+
+### 2. Configure Environment
+Create a `.env` file in the root directory:
+```bash
+cp .env.example .env
+```
+Add your Groq API key (get one at [console.groq.com](https://console.groq.com)):
+```env
+VITE_GROQ_API_KEY=your_groq_api_key_here
+```
+
+### 3. Run Development Server
+```bash
 npm run dev
 ```
 
-`VITE_GROQ_API_KEY` is required for real replies (see `.env.example`).
+---
 
-## Deploy (e.g. Vercel)
+## 🔮 Future Improvements
+- [ ] **Voice Interview Mode:** Integrate Speech-to-Text and Text-to-Speech for realistic verbal practice.
+- [ ] **Code Execution Sandbox:** Allow users to run and test their code snippets directly within the chat.
+- [ ] **Difficulty Levels:** Adjustable difficulty (Easy, Medium, Hard) to match LeetCode standards.
+- [ ] **Topic Progress Tracking:** A dashboard to visualize which DSA areas you've mastered.
 
-1. Push the repo to GitHub.
-2. Import the project in [Vercel](https://vercel.com) (framework: **Vite**).
-3. Add environment variable **`VITE_GROQ_API_KEY`** in the Vercel project settings.
-4. Deploy. `vercel.json` includes a SPA **rewrite** so client-side routing keeps working.
+---
 
-## Project structure
-
-```
-src/
-├── api/groq.js              # Groq API client
-├── components/
-│   ├── ChatInput.jsx         # Message input with send button
-│   ├── ChatMessages.jsx      # Scrollable message list
-│   ├── Header.jsx            # Mode selector + theme toggle
-│   ├── Sidebar.jsx           # Chat history + profile widget
-│   ├── SuggestedPrompts.jsx  # Landing cards & inline prompts
-│   └── chat/
-│       └── MessageBubble.jsx # User/assistant message bubble
-├── constants/chat.js         # Shared constants
-├── context/ThemeContext.jsx   # Light/dark theme (React context)
-├── layout/AppLayout.jsx      # Sidebar + main area layout
-├── lib/
-│   ├── chatStorage.js        # localStorage read/write
-│   └── systemPrompt.js       # System prompt builder
-├── pages/ChatPage.jsx        # Main page (landing ↔ chat view)
-├── App.jsx
-├── main.jsx
-└── index.css                 # CSS custom properties for theming
-```
-
-## Stack
-
-React (Vite), Tailwind CSS v4, Groq API (`llama-3.1-8b-instant`), `react-markdown` + `rehype-highlight`, localStorage for chat & theme persistence.
+## 🤝 Contributing
+Contributions are welcome! If you have ideas for new pedagogical modes or UI enhancements, feel free to open an issue or submit a pull request.
