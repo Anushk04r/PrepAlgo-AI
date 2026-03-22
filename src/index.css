@@ -1,0 +1,167 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+@import 'highlight.js/styles/github-dark.css';
+
+/* ── Theme tokens ───────────────────────────────────────── */
+:root,
+[data-theme='dark'] {
+  --bg-primary: #09090b;
+  --bg-secondary: #18181b;
+  --bg-surface: rgba(24, 24, 27, 0.95);
+  --bg-surface-hover: rgba(39, 39, 42, 0.9);
+  --bg-surface-alt: rgba(24, 24, 27, 0.55);
+  --bg-input: rgba(24, 24, 27, 0.95);
+  --bg-input-focus: #18181b;
+  --bg-bubble-user: #52525b;
+  --bg-bubble-assistant: rgba(24, 24, 27, 0.95);
+  --bg-code-inline: rgba(39, 39, 42, 0.9);
+  --bg-code-block: #09090b;
+  --bg-badge: rgba(39, 39, 42, 0.8);
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+  --bg-landing-card: rgba(24, 24, 27, 0.7);
+
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --text-tertiary: #71717a;
+  --text-muted: #52525b;
+  --text-inverse: #18181b;
+  --text-code: rgba(110, 231, 183, 0.95);
+  --text-accent: #a78bfa;
+
+  --border-primary: rgba(39, 39, 42, 0.9);
+  --border-secondary: rgba(39, 39, 42, 0.8);
+  --border-hover: #52525b;
+  --border-focus: #71717a;
+  --border-input: rgba(63, 63, 70, 0.8);
+
+  --shadow-soft: rgba(0, 0, 0, 0.35);
+  --shadow-medium: rgba(0, 0, 0, 0.55);
+
+  --gradient-btn-from: #f4f4f5;
+  --gradient-btn-to: rgba(228, 228, 231, 0.95);
+
+  --ring-subtle: rgba(39, 39, 42, 0.6);
+
+  --mode-active-from: #52525b;
+  --mode-active-to: #3f3f46;
+  --mode-active-ring: rgba(255, 255, 255, 0.1);
+
+  --interview-bg: rgba(46, 16, 101, 0.35);
+  --interview-border: rgba(76, 29, 149, 0.4);
+  --interview-text: rgba(221, 214, 254, 0.95);
+
+  --profile-bg: rgba(39, 39, 42, 0.6);
+  --profile-avatar-bg: linear-gradient(135deg, #7c3aed, #6d28d9);
+  --profile-name: #f4f4f5;
+  --profile-sub: #71717a;
+
+  color-scheme: dark;
+}
+
+[data-theme='light'] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f4f4f5;
+  --bg-surface: rgba(244, 244, 245, 0.95);
+  --bg-surface-hover: rgba(228, 228, 231, 0.9);
+  --bg-surface-alt: rgba(244, 244, 245, 0.7);
+  --bg-input: #ffffff;
+  --bg-input-focus: #ffffff;
+  --bg-bubble-user: #7c3aed;
+  --bg-bubble-assistant: #f4f4f5;
+  --bg-code-inline: rgba(228, 228, 231, 0.7);
+  --bg-code-block: #fafafa;
+  --bg-badge: rgba(228, 228, 231, 0.8);
+  --bg-overlay: rgba(0, 0, 0, 0.3);
+  --bg-landing-card: rgba(244, 244, 245, 0.8);
+
+  --text-primary: #18181b;
+  --text-secondary: #52525b;
+  --text-tertiary: #71717a;
+  --text-muted: #a1a1aa;
+  --text-inverse: #f4f4f5;
+  --text-code: #059669;
+  --text-accent: #7c3aed;
+
+  --border-primary: rgba(228, 228, 231, 0.9);
+  --border-secondary: rgba(228, 228, 231, 0.7);
+  --border-hover: #d4d4d8;
+  --border-focus: #a1a1aa;
+  --border-input: rgba(209, 213, 219, 0.8);
+
+  --shadow-soft: rgba(0, 0, 0, 0.08);
+  --shadow-medium: rgba(0, 0, 0, 0.12);
+
+  --gradient-btn-from: #7c3aed;
+  --gradient-btn-to: #6d28d9;
+
+  --ring-subtle: rgba(228, 228, 231, 0.6);
+
+  --mode-active-from: #7c3aed;
+  --mode-active-to: #6d28d9;
+  --mode-active-ring: rgba(255, 255, 255, 0.2);
+
+  --interview-bg: rgba(237, 233, 254, 0.6);
+  --interview-border: rgba(196, 181, 253, 0.5);
+  --interview-text: #5b21b6;
+
+  --profile-bg: rgba(228, 228, 231, 0.5);
+  --profile-avatar-bg: linear-gradient(135deg, #7c3aed, #6d28d9);
+  --profile-name: #18181b;
+  --profile-sub: #71717a;
+
+  color-scheme: light;
+}
+
+/* ── Base reset ─────────────────────────────────────────── */
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.625;
+  letter-spacing: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'kern' 1, 'liga' 1;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* tuneable hljs */
+.hljs {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* light-mode code highlight override */
+[data-theme='light'] .hljs {
+  color: #24292e;
+}
+[data-theme='light'] .hljs-keyword,
+[data-theme='light'] .hljs-selector-tag { color: #d73a49; }
+[data-theme='light'] .hljs-string,
+[data-theme='light'] .hljs-doctag { color: #032f62; }
+[data-theme='light'] .hljs-title,
+[data-theme='light'] .hljs-section,
+[data-theme='light'] .hljs-built_in { color: #6f42c1; }
+[data-theme='light'] .hljs-comment { color: #6a737d; }
+[data-theme='light'] .hljs-number,
+[data-theme='light'] .hljs-literal { color: #005cc5; }
+
+/* smooth theme transition for key elements */
+*, *::before, *::after {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.15s ease, box-shadow 0.25s ease;
+}
+/* Opt out for animated elements that handle their own transitions */
+textarea, input, button {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.15s ease, box-shadow 0.25s ease, opacity 0.2s ease, transform 0.2s ease;
+}
