@@ -62,8 +62,8 @@ Depending on the selected mode, the application dynamically injects different be
 
 ### 1. Clone & Install
 ```bash
-git clone https://github.com/your-username/AlgoMentor-AI.git
-cd AlgoMentor-AI
+git clone https://github.com/Anushk04r/PrepAlgo-AI
+cd PrepAlgo-AI
 npm install
 ```
 
