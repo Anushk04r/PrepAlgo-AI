@@ -54,7 +54,9 @@ export default function Sidebar({
   mobileOpen = false,
   onCloseMobile,
 }) {
-  const recent = sortByRecent(chats).slice(0, 5)
+  const recent = sortByRecent(chats)
+    .filter((c) => c.messages.some((m) => m.role === 'user'))
+    .slice(0, 5)
 
   function handleSelect(id) {
     onSelectChat(id)
