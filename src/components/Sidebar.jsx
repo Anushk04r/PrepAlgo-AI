@@ -99,7 +99,7 @@ export default function Sidebar({
                 className="text-[1.0625rem] font-semibold tracking-tight"
                 style={{ color: 'var(--text-primary)' }}
               >
-                DSA Mentor AI
+                PrepAlgo AI
               </h1>
               <p
                 className="mt-1 text-xs leading-snug"

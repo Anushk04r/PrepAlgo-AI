@@ -260,7 +260,7 @@ export default function ChatPage() {
                 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl"
                 style={{ color: 'var(--text-primary)' }}
               >
-                Hi, I'm DSA Mentor AI 👋
+                Hi, I'm PrepAlgo AI 👋
               </h2>
               <p
                 className="max-w-md text-base sm:text-lg"

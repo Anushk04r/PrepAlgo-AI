@@ -17,7 +17,7 @@ export default function ChatInput({
   onChange,
   onSend,
   disabled = false,
-  placeholder = 'Message DSA Mentor AI…',
+  placeholder = 'Message PrepAlgo AI…',
   centered = false,
 }) {
   function handleSubmit(e) {

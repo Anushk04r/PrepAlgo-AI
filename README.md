@@ -1,25 +1,25 @@
-# AlgoMentor AI
+# PrepAlgo AI
 
-AlgoMentor AI is an intelligent, AI-powered DSA interview assistant designed to help developers master Data Structures and Algorithms through a structured, interactive, and feedback-driven experience. Unlike generic chatbots, AlgoMentor AI is engineered with a specialized pedagogical approach to guide users from conceptual understanding to interview readiness.
+PrepAlgo AI is an intelligent, AI-powered DSA interview assistant designed to help developers master Data Structures and Algorithms through a structured, interactive, and feedback-driven experience. Unlike generic chatbots, PrepAlgo AI is engineered with a specialized pedagogical approach to guide users from conceptual understanding to interview readiness.
 
 ---
 
 ## 💡 The Core Idea
 
-Mastering DSA isn't just about finding the solution—it's about understanding the "why" and "how." **AlgoMentor AI** solves the problem of passive learning by acting as a mentor rather than just an answer engine. It focuses on the intuition behind algorithms, time/space complexity analysis, and realistic interview simulation, ensuring users are prepared for the rigors of technical interviews at top-tier companies.
+Mastering DSA isn't just about finding the solution—it's about understanding the "why" and "how." **PrepAlgo AI** solves the problem of passive learning by acting as a mentor rather than just an answer engine. It focuses on the intuition behind algorithms, time/space complexity analysis, and realistic interview simulation, ensuring users are prepared for the rigors of technical interviews at top-tier companies.
 
 ---
 
 ## 🚀 Key Features
 
 ### 🎓 Mode-Based Learning System
-AlgoMentor AI adapts its behavior based on your current goal. You can toggle between three specialized modes via the header:
+PrepAlgo AI adapts its behavior based on your current goal. You can toggle between three specialized modes via the header:
 - **Beginner Mode:** Focuses on clear, step-by-step explanations. It uses analogies and detailed walkthroughs to help you grasp fundamental concepts without feeling overwhelmed.
 - **Interview Mode:** Provides concise, optimal solutions and professional-grade explanations. This mode is designed to show you how a top-tier candidate should communicate their thoughts and code during a real interview.
 - **Practice Mode:** Our signature "guided discovery" mode. The AI acts as a patient coach, providing subtle hints and directional nudges instead of full solutions, forcing you to think through the logic yourself.
 
 ### 🎭 Mock Interview Simulation
-A standout feature where the AI takes the driver's seat. In Practice Mode, AlgoMentor AI doesn't just wait for questions—it **asks** them. It conducts a realistic technical interview, evaluates your approach, critiques your time/space complexity, and provides constructive feedback on how to improve your performance.
+A standout feature where the AI takes the driver's seat. In Practice Mode, PrepAlgo AI doesn't just wait for questions—it **asks** them. It conducts a realistic technical interview, evaluates your approach, critiques your time/space complexity, and provides constructive feedback on how to improve your performance.
 
 ### 🌓 Premium ChatGPT-like UI
 Experience a world-class interface that feels alive:
@@ -28,7 +28,7 @@ Experience a world-class interface that feels alive:
 - **Light/Dark Mode:** A polished theme system with a dedicated toggle button, allowing for a comfortable coding environment in any lighting.
 
 ### 📜 Persistent Chat History
-No login? No problem. AlgoMentor AI uses advanced `localStorage` management to persist your last **5 conversations**. Your progress, code snippets, and interview feedbacks are saved locally on your device, ready for you to pick up exactly where you left off.
+No login? No problem. PrepAlgo AI uses advanced `localStorage` management to persist your last **5 conversations**. Your progress, code snippets, and interview feedbacks are saved locally on your device, ready for you to pick up exactly where you left off.
 
 ### 💻 Rich Markdown & Code Rendering
 All technical explanations and code blocks are rendered with precision. Using `react-markdown` and `rehype-highlight`, syntax highlighting is applied across multiple languages, making code snippets as readable as they would be in your IDE.
@@ -48,7 +48,7 @@ All technical explanations and code blocks are rendered with precision. Using `r
 ## 🧠 How It Works
 
 ### The System Prompt Architecture
-AlgoMentor AI is grounded by a strict system prompt that ensures it never strays from the DSA domain. It is programmed to:
+PrepAlgo AI is grounded by a strict system prompt that ensures it never strays from the DSA domain. It is programmed to:
 1.  **Refuse** out-of-scope questions.
 2.  **Enforce** complexity analysis in every technical response.
 3.  **Validate** edge cases for every algorithm discussed.
